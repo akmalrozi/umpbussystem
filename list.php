@@ -4,14 +4,14 @@ include("config.php");
 $datefrom = "";
 $dateto="";
 $busid ="";
+$A="25/12/2019";
+$B="30/12/2019";
 
 if(isset($_POST['date']) && isset($_POST['date_last']) && isset($_POST['busid'])) {
-	$datefrom = $_POST['date'];
-	$dateto = $_POST['date_last'];
-	$datefrom = date('Y-m-d', strtotime(str_replace('-', '/', $datefrom)));
-	$dateto = date('Y-m-d', strtotime(str_replace('-', '/', $dateto)));
-	$busid = $_POST['busid'];
-	//echo "SELECT * FROM booking_bus LEFT JOIN user_booking ON booking_bus.num_booking = user_booking.num_booking WHERE user_booking.date_from >= '$datefrom' AND user_booking.date_last <= '$dateto' ";
+    $datefrom = $_POST['date'];
+    $dateto = $_POST['date_last'];
+    $busid = $_POST['busid'];
+    
 	$stmta = $dbo->prepare("SELECT * FROM `user_booking` WHERE num_booking = '$busid' AND ('$datefrom'<=date_last) AND ('$dateto' >= date)");
 	$stmta->execute();
 }
@@ -177,18 +177,55 @@ img {
             <?php } ?>
           </div>
           <p>&nbsp;</p>
-			  <?php }
+			
+<?php }
                           
                           
-			  } else {
-				  ?>
-				  <a href="booking1.php?id=<?php echo $busid; ?>&datefrom=<?php echo $_POST['date']; ?>&datetto=<?php echo $_POST['date_last']; ?>" class="btn btn-primary btn-lg" style="min-width:220px">
-				  <span style="font-size:17px;" >Bus is Available ! Proceed --></span>
-				  </a>
-				  <?php
-			  }
+              }
+            if (($_POST['date']) == ($_POST['date_last'])){
 
-		  }
+                 ?>
+
+                  <a href="list.php?id=<?php echo $busid; ?>&datefrom=<?php echo $_POST['date']; ?>&datetto=<?php echo $_POST['date_last']; ?>" <p>Change the date</p>
+                  </a>
+                  <?php
+              }
+              elseif (($_POST['date']) > ($_POST['date_last'])){
+
+                 ?>
+
+
+                  <a href="list.php?id=<?php  echo $busid; ?>&datefrom=<?php echo $_POST['date']; ?>&datetto=<?php echo $_POST['date_last']; ?>" <p>Invalid Date</p>
+                  </a>
+                  <?php
+              }
+
+
+              
+            else {
+                if (($_POST['date']) <= "30/12/2019" && ($_POST['date_last']) >= "25/12/2019" ){##change
+
+                    ?>
+                  <a href="booking1.php?id=<?php echo $busid; ?>&datefrom=<?php echo $_POST['date']; ?>&datetto=<?php echo $_POST['date_last']; ?>" class="btn btn-primary btn-lg" style="min-width:220px">
+                  <span style="font-size:17px;" >Bus is Available ! Proceed --></span>
+                  </a>
+                  <?php
+                }
+                else{
+                    ?>
+
+
+                  <a href="list.php?id=<?php echo $busid; ?>&datefrom=<?php echo $_POST['date']; ?>&datetto=<?php echo $_POST['date_last']; ?>" <h>Not Avaliable</h>
+                  </a>
+                  <?php
+
+                }
+
+
+                  
+              }
+
+          }
                   
                   ?>
 					
