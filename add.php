@@ -8,17 +8,21 @@ if (!isset($_SESSION['user'])) {
 }
 
 if (isset($_POST["submit"])) {
-	
 	$submit = true;
 	$title = $_POST["title"];
 	$date = $_POST["date"];
-    $date_last = $_POST["date_last"];
+  	$date_last = $_POST["date_last"];
 	$time = $_POST["time"];
-    $time_last = $_POST["time_last"];
-    $driver = $_POST["driver"];
-	//$place = $_POST["place"];
-	$date = date('Y-m-d', strtotime(str_replace('-', '/', $date)));
-	$date_last = date('Y-m-d', strtotime(str_replace('-', '/', $date_last)));
+  	$time_last = $_POST["time_last"];
+  	$driver = $_POST["driver"];
+	$time_last = DateTime::createFromFormat( 'H:i A', $time_last);
+  $time = DateTime::createFromFormat( 'H:i A', $time);
+  $time_last = $time_last->format( 'H:i:s');
+  $time = $time->format( 'H:i:s');
+  echo $time;
+  $date = date('Y-m-d', strtotime(str_replace('-', '/', $date)));
+  $date_last = date('Y-m-d', strtotime(str_replace('-', '/', $date_last)));
+  #$date_last = date('Y-m-d', strtotime(str_replace('-', '/', $date_last)));
 
 
 $sql = "INSERT INTO booking_bus (title, date, date_last, time, time_last, driver) VALUES (:a, :b, :c, :d, :e, :f)";
@@ -164,36 +168,37 @@ img {
               <!--<h2>Add Match</h2>-->
               <p></p>
               <form class="form-horizontal" role="form" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+                 <div class="form-group">
+                  <label class="control-label col-sm-2" for="date">FROM</label>
+                  <div class="col-sm-4">
+                    <input type='text' class="form-control" id='datetimepicker3' name="date" placeholder="Enter date" />
+                  </div>
+                  <label class="control-label col-sm-1" for="date">TO</label>
+                  <div class="col-sm-4">
+                    <input type='text' class="form-control" id='date_last' name="date_last" placeholder="Enter date" />
+                  </div>
+                </div>
                 <div class="form-group">
                   <label class="control-label col-sm-2" for="title">Title:</label>
                   <div class="col-sm-4">
                     <input type="title" class="form-control" id="title" name="title" placeholder="Enter title">
                   </div>
                 </div>
-				<div class="form-group">
+        <div class="form-group">
                   <label class="control-label col-sm-2" for="driver">Driver:</label>
                   <div class="col-sm-4">
                     <input type='text' class="form-control" id='driver' name="driver" placeholder="Enter driver" />
                   </div>
                 </div>
+               
                 <div class="form-group">
-                  <label class="control-label col-sm-2" for="date"></label>
+                  <label class="control-label col-sm-2" for="time">Time</label>
                   <div class="col-sm-4">
-                    <input type='hidden' class="form-control" id='datetimepicker3' name="date" placeholder="Enter date" />
+                    <input type='text' class="form-control" id='time' name="time" placeholder="Enter time" />
                   </div>
-                  <label class="control-label col-sm-1" for="date"></label>
+                  <label class="control-label col-sm-1" for="time">Last</label>
                   <div class="col-sm-4">
-                    <input type='hidden' class="form-control" id='datetimepicker4' name="date_last" placeholder="Enter date" />
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label class="control-label col-sm-2" for="time"></label>
-                  <div class="col-sm-4">
-                    <input type='hidden' class="form-control" id='datetimepicker5' name="time" placeholder="Enter time" />
-                  </div>
-                  <label class="control-label col-sm-1" for="time"></label>
-                  <div class="col-sm-4">
-                    <input type='hidden' class="form-control" id='datetimepicker6' name="time_last" placeholder="Enter time" />
+                    <input type='text' class="form-control" id='time_last' name="time_last" placeholder="Enter time" />
                   </div>
                 </div>
                 <!--
