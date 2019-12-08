@@ -302,7 +302,7 @@ img {
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                   <p>Copyright &copy; UNIVERSITI MALAYSIA PAHANG 2002 - 2016</p>
+                   <p>Copyright &copy; UNIVERSITI MALAYSIA PAHANG 2002 - 2019</p>
                 </div>
             </div>
         </div>
