@@ -143,29 +143,39 @@ img {
                 <h2><span class="glyphicon glyphicon-user"></span>&nbsp;User Details</h2>
               <p></p>
                         <div class="form-group">
-                          <label class="control-label col-sm-2" for="name">Name:</label>
+                          <label class="control-label col-sm-2" for="name">NAME:</label>
                           <div class="col-sm-7">
                           <input type="text" class="form-control" required id="name" name="name" placeholder="Enter Name">
                           </div>
                         </div>
-                        <div class="form-group">
+                      <div class="form-group">
                           <label class="control-label col-sm-2" for="nric">NRIC:</label>
                           <div class="col-sm-6">
-                          <input type="text"  pattern="\d*" class="form-control" required id="nric" name="nric" placeholder="Enter NRIC">
+                          <input type="text"   pattern=".{12,12}" class="form-control" required id="nric" name="nric" placeholder="Enter NRIC">
+			<br><font color="red">&nbsp (E.g. 841231016452)</font></br>
                           </div>
                         </div>
                         <div class="form-group">
                           <label class="control-label col-sm-2" for="nric">STUDENT ID:</label>
                           <div class="col-sm-6">
-                          <input type="text"   class="form-control" required id="std_id" name="std_id" placeholder="Enter ID">
+                          <input type="text" pattern=".{7,7}"   class="form-control" required id="std_id" name="std_id" placeholder="Enter ID">
                           </div>
                         </div>
                         <div class="form-group">
                           <label class="control-label col-sm-2" for="nric">FACULTY:</label>
-                          <div class="col-sm-6">
-                          <input type="text"   class="form-control" required id="faculty" name="faculty" placeholder="Enter FACULTY">
+			<div class="col-sm-4">
+                          <select class="form-control" name="faculty">
+                            <option value="FKOM">FKOM</option>
+                            <option value="FKKSA">FKKSA</option>
+                            <option value="FKASA">FKASA</option>
+                            <option value="FKEE">FKEE</option>
+                            <option value="FKM">FKM</option>
+                            <option value="FIST">FIST</option>
+                            <option value="FTEK">FTEK</option>
+                            <option value="FIM">FIM</option>
+                          </select>  
                           </div>
-                        </div>
+			</div>
               <div class="form-group">
                   <label class="control-label col-sm-2" for="date">Date:</label>
                   <div class="col-sm-4">
@@ -178,31 +188,32 @@ img {
                 </div>
                 
                         <div class="form-group">
-                          <label class="control-label col-sm-2" for="email">E-mail:</label>
+                          <label class="control-label col-sm-2" for="email">E-MAIL:</label>
                           <div class="col-sm-7">
                           <input type="email" class="form-control" required id="email" name="email" placeholder="Enter E-mail">
                           </div>
                         </div>
                         <div class="form-group">
-                          <label class="control-label col-sm-2" for="phone">Phone:</label>
+                          <label class="control-label col-sm-2" for="phone">PHONE:</label>
                           <div class="col-sm-4">
-                          <input type="tel" class="form-control" required  pattern="\d*" id="phone" name="phone" placeholder="Enter Phone Number">
+                          <input type="tel" class="form-control" pattern=".{10,12}" id="phone" name="phone" placeholder="Enter Phone Number"> 
+			<font color="red">&nbsp (10 to 12 digit numbers)</font>
                           </div>
-                        </div>
+                        </div> 
                         <div class="form-group">
-                          <label class="control-label col-sm-2" for="address">Location Address:</label>
+                          <label class="control-label col-sm-2" for="address">ADDRESS:</label>
                           <div class="col-sm-7">
                           <textarea class="form-control" rows="3" required id="adress" name="address" placeholder="Enter Address" ></textarea>
                           </div>
                         </div>
                         <div class="form-group">
-                          <label class="control-label col-sm-2" for="city">City:</label>
+                          <label class="control-label col-sm-2" for="city">CITY:</label>
                           <div class="col-sm-4">
                           <input type="text" class="form-control" required id="city" name="city" placeholder="Enter City">
                           </div>
                         </div>
                         <div class="form-group">
-                          <label class="control-label col-sm-2" for="state">State:</label>
+                          <label class="control-label col-sm-2" for="state">STATE:</label>
                           <div class="col-sm-4">
                           <select class="form-control" name="state">
                             <option value="Johor">Johor</option>
@@ -223,18 +234,18 @@ img {
                           </div>
                         </div>
                         <div class="form-group">
-                          <label class="control-label col-sm-2" for="postcode">Postcode:</label>
+                          <label class="control-label col-sm-2" for="postcode">POSTCODE:</label>
                           <div class="col-sm-4">
-                          <input type="text" maxlength="5"  pattern="\d*" class="form-control" id="postcode" required name="postcode" placeholder="Enter Postcode">
+                          <input type="text" pattern=".{5,5}" class="form-control" id="postcode" required name="postcode" placeholder="Enter Postcode">
                           </div>
                         </div>
-						 <div class="form-group">
+			<div class="form-group">
                           <label class="control-label col-sm-2" for="terms">Terms & Conditions:</label>
                           <div class="col-sm-4">
                           <p style="text-align:left"><input type="checkbox" required name="terms"> I accept the <a style="color:#06F" data-toggle="modal" href="#myModal">Terms and Conditions</a></p>
                           </div>
                         </div>
-						<div class="form-group">
+		<div class="form-group">
                   <label class="control-label col-sm-2" for="time"></label>
                   <div class="col-sm-4">
                     <input type='hidden' class="form-control" id='datetimepicker5' name="time" placeholder="Enter time" />
@@ -297,7 +308,7 @@ img {
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                   <p>Copyright &copy; UNIVERSITI MALAYSIA PAHANG 2002 - 2016</p>
+                   <p>Copyright &copy; UNIVERSITI MALAYSIA PAHANG 2002 - 2019</p>
                 </div>
             </div>
         </div>
