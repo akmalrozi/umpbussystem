@@ -270,6 +270,7 @@ img {
                 
                         <div class="form-group">
                             <button type="submit" name="submit" class="btn btn-default"><strong><span class="glyphicon glyphicon-ok"></span>&nbsp; Proceed to Submit</strong></button>
+			    <button type="button" name="booking" class="btn btn-default"><strong><span class="glyphicon glyphicon-ok"></span><a href=list.php>&nbsp; New Booking</a></strong></button>
                         </div>  
                           </form>
               
