@@ -96,16 +96,6 @@ img {
                         <a href="admin.php">Admin Home</a>
                     </li>
                     <li>
-                        <a href="add.php">Add Bus</a>
-                    </li>
-                    <li>
-                        <a href="view.php">View Bus</a>
-                    </li>
-					<li>
-                        <a href="vieworders.php">View Orders</a>
-                    </li>
-					
-                    <li>
                         <a href="logout.php">Logout</a>
                     </li>
                 </ul>
@@ -129,30 +119,22 @@ img {
             <br><br>
 
       	<p></p>                                                                                      
-          <div class="table-responsive" style=" width: 1950px;" >          
+          <div class="table-responsive" style=" width: 1000px;" >          
                 <table class="table" id="vieworders" >
                     <thead>
                       <tr>
                         <th>Booking ID</th>
                         <th>Bus ID</th>
-                        <th>Name</th>
-                        <th>NRIC</th>
+                        <th>Name</th>                        
                         <th>Student ID</th>
                         <th>Faculty</th>
                         <th>Date</th>
-                        <th>E-mail</th>
-                        <th>Addr.</th>
-                        <th>Phone</th>
-                        <th>City</th>
-                        <th>State</th>
-                        <th>Postc.</th>
                         <th>Price</th>
                         <th>Remarks</th>
                         <th>Paper Work</th>
                         <th>Status</th>
                         <th>Payment</th>
-                        <th>Status</th>
-                        <th>Options</th>
+                       
                       </tr>
                     </thead>
                     <tbody style="color:#000000">
@@ -167,19 +149,11 @@ img {
                         <td><?php echo $sa["num_user_booking"]; ?></td>
                         <td><?php echo $sa["num_booking"]; ?></td>
                         <td><?php echo $sa["name"]; ?></td>
-                        <td><?php echo $sa["nric"]; ?></td>
                         <td><?php echo $sa["std_id"]; ?></td>
                         <td><?php echo $sa["faculty"]; ?></td>
                         <td><?php echo $sa["date"]; ?> to <?php echo $sa["date_last"]; ?></td>
-                        <td><?php echo $sa["email"]; ?></td>
-                        <td><?php echo $sa["address"]; ?></td>
-                        <td><?php echo $sa["phone"]; ?></td>
-                        <td><?php echo $sa["city"]; ?></td>
-                        <td><?php echo $sa["state"]; ?></td>
-                        <td><?php echo $sa["postcode"]; ?></td>
                         <td><?php echo $sa["price"]; ?></td>
                         <td><?php echo $sa["remarks"]; ?></td>
-                        
 						<td><?php if ($sa["paper_work"] != "") { ?><a style="color:blue" href="upload/<?php echo $sa["num_user_booking"]; ?>/status/<?php echo $sa["paper_work"]; ?>" >Download</a><?php } ?></td>
                         <td><?php if ($sa["paper_work"] == "") { ?><span style="color:#FF0004" >Not Proc.</span><?php } elseif ($sa["paper_work"] != "") { 
 						if ($sa["status"] == "0") { ?>
@@ -187,17 +161,10 @@ img {
                         <span ><a target="_blank"  style="color: green;" href="adminapproval.php?orderid=<?php echo $sa["num_user_booking"]; ?>" >Approved</a></span><?php }  elseif ($sa["status"] == "3") { ?>
 						<span ><a target="_blank"  style="color: red;" href="adminapproval.php?orderid=<?php echo $sa["num_user_booking"]; ?>" >Rejected</a></span><?php } }?>
 						</td>
-						
-						<td><?php if ($sa["pay"] != "") { ?><a style="color:blue" href="upload/<?php echo $sa["num_user_booking"]; ?>/pstatus/<?php echo $sa["pay"]; ?>" >Download</a><?php } ?></td>
-                        <td><?php if ($sa["pay"] == "") { ?><span style="color:#FF0004" >Not Proc.</span><?php } elseif ($sa["pay"] != "") { 
-						if ($sa["pstatus"] == "0") { ?>
-                        <span><a  style="color:yellow;"  target="_blank" href="adminpapproval.php?orderid=<?php echo $sa["num_user_booking"]; ?>" >Pending</a></span><?php }  elseif ($sa["pstatus"] == "1") { ?>
-                        <span ><a target="_blank"  style="color: green;" href="adminpapproval.php?orderid=<?php echo $sa["num_user_booking"]; ?>" >Approved</a></span><?php }  elseif ($sa["pstatus"] == "3") { ?>
-						<span ><a target="_blank"  style="color: red;" href="adminpapproval.php?orderid=<?php echo $sa["num_user_booking"]; ?>" >Rejected</a></span><?php } }?>
-					    
-						<td><a id="<?php echo $sa["num_user_booking"];?>" class="btn btn-danger delete"><span class="glyphicon glyphicon-trash"></span>&nbsp;Delete</a></td>
+						<td><?php if ($sa["pay"] != "") { ?><a style="color:blue" href="upload/<?php echo $sa["num_user_booking"]; ?><?php } ?></td>
                       </tr>
                      <?php } ?> 
+                    
                     </tbody>
                 </table>
               </div>      
@@ -208,17 +175,8 @@ img {
             </div>
         </div>
     </div>
+	 </div>
     <!-- /.container -->
-
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                   <p>Copyright &copy; UNIVERSITI MALAYSIA PAHANG 2002 - 2016</p>
-                </div>
-            </div>
-        </div>
-    </footer>
 
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
