@@ -242,7 +242,8 @@ img {
 			<div class="form-group">
                           <label class="control-label col-sm-2" for="terms">Terms & Conditions:</label>
                           <div class="col-sm-4">
-                          <p style="text-align:left"><input type="checkbox" required name="terms"> I accept the <a style="color:#06F" data-toggle="modal" href="#myModal">Terms and Conditions</a></p>
+                          <p style="text-align:left"><input type="checkbox" required name="terms"> I accept the 
+				  <a style="color:#06F" href="#termCondition.php" target="_blank">Terms and Conditions</a></p>
                           </div>
                         </div>
 		<div class="form-group">
@@ -268,6 +269,9 @@ img {
                             </div>
                   </div> 
                   
+
+         
+
           
           
           
@@ -289,6 +293,7 @@ img {
                       
                     </div>
                   </div>
+
                 <div class="clearfix"></div>
             </div>
         </div>
