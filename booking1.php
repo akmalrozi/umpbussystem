@@ -231,7 +231,8 @@ img {
 						 <div class="form-group">
                           <label class="control-label col-sm-2" for="terms">Terms & Conditions:</label>
                           <div class="col-sm-4">
-                          <p style="text-align:left"><input type="checkbox" required name="terms"> I accept the <a style="color:#06F" data-toggle="modal" href="#myModal">Terms and Conditions</a></p>
+                          <p style="text-align:left"><input type="checkbox" required name="terms"> I accept the 
+				  <a style="color:#06F" href="#termCondition.php">Terms and Conditions</a></p>
                           </div>
                         </div>
 						<div class="form-group">
@@ -257,27 +258,7 @@ img {
                             </div>
                   </div> 
                   
-          
-          
-          
-                                  
-                  <div class="modal fade" id="myModal" role="dialog">
-                    <div class="modal-dialog">
-                    
-                      <!-- Modal content-->
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <button type="button" class="close" data-dismiss="modal">&times;</button>
-                          <h4 class="modal-title" style="color:#000000;">Terms & Conditions</h4>
-                        </div>
-                       
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        </div>
-                      </div>
-                      
-                    </div>
-                  </div>
+         
                 <div class="clearfix"></div>
             </div>
         </div>
